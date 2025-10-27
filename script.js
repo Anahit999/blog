@@ -38,3 +38,17 @@ if( typeof f == "number"){
 let fruits=["pear", "chery", "strawberry"];
 let fruits1=fruits.pop();
 console.log(fruits);//12rd xndir
+const ages =[3, 5, 6.7, 18,3,57]
+let ages1= ages.findIndex(checkAge);
+function checkAge(age){
+    return age > 10;
+}
+console.log(ages1);//13rd xndir
+const q=[ 3,4,13,11,26,8];
+let q1= q.filter(check);
+function check(u){
+    return u%2===0
+}
+function check(u){
+}
+console.log(q1);//14rd xndir-------
