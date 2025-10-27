@@ -52,3 +52,36 @@ function check(u){
 function check(u){
 }
 console.log(q1);//14rd xndir-------
+const myArr=[1, 2, 3, 4, 5, 6];
+const newArr = myArr.flatMap(x => [x, x * 2]);
+console.log(newArr);//15rd xndir
+const city=["ijevan", "yerevan", "london", "paris"];
+let city1=city.includes("yerevan");
+console.log(city1);//17rd xndir
+const j=["monrolia", "china", "japan", "south korea"];
+let j1=j.join(" and ");
+console.log(j1);//18rd xndir
+const B=[ "banana", "lemon", "orange", "watermalon", "melon"];
+let B1=B.slice(1.3);
+console.log(B1);//19rd xndir+-+-+-+-
+const point=[5,1,128,56,49,86,68];
+point.sort(function(a, b){
+    return a-b
+});
+console.log(point);//20rd xndir
+const person={
+    fullName: "Anahit",
+    lastName: "Yolchyan",
+    herAge: "18",
+    eyeColor: "brown"
+}
+let keys= Object.keys(person);
+console.log(keys);//21rd xndir
+let values=Object.values(person);
+console.log(values);//22rd xndir
+let entries=Object.entries(person)
+console.log(entries);//25rd xndir+-+-+-+-
+const obj= {a: 1, b: 3}
+console.log('a'in obj);
+console.log('c' in obj);
+console.log('b' in obj);//23rd xndir
