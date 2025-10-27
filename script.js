@@ -10,3 +10,31 @@ console.log(result)//5rd xndir
 let b="Good bye";
 console.log(b);
 console.log(b.replace(/ /g,"_"));//7rd xndir
+let d="imagination";
+let part = d.slice(0.3);
+let part1 = d.slice(-3);
+console.log(part + part1);//8rd xndir-------
+let c="  tomorrow is my birthday  ";
+let c1 = c.trimStart();
+let c2 = c.trimEnd();
+console.log(c1);
+console.log(c2);//9rd xndir
+let word = "collaboration";
+let word1= word.length;
+console.log(word1);//10rd xndir
+let x=135;
+let y=x.toString(2);
+let y1=y.length;
+console.log(y1);//3rd xndir
+let e= 7.88;
+let e1= parseInt(e);
+console.log(e1);//4rd xndir
+let f= "14";
+if( typeof f == "number"){
+    console.log("f is a number")
+}else{
+    console.log("f is no number")
+}//2rd xndir
+let fruits=["pear", "chery", "strawberry"];
+let fruits1=fruits.pop();
+console.log(fruits);//12rd xndir
