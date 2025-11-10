@@ -67,6 +67,18 @@
     foreach(array_keys($student) as $key){
         echo $key . "<br>";
     }//error e talis
+    echo:"<br>";
+    foreach ($student as $value){
+        echo $value . "<br>";
+    if (array_key_exists("tariq", $student))
+        echo"exist:<br>"
+    }else{
+
+    echo"doesn't exist:<br>"
+    }
+    $student["qaxaq"] = "Erevan";
+    echo "<br>";
+    print_r($student);//xndir9 en erroric heto mnacacy chem pordzel, bayc kodery iti chisht lini
     ?>
 </body>
 <html>
