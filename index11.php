@@ -90,7 +90,7 @@
     $evenNumbers = array_filter($numbers, function($num)){
         return $num %2 == 0;
     }
-    print_r($evenNumbers);//es mekn el error tvec
+    print_r($evenNumbers);//es mekn el error tvec//xndir10
     ?>
 </body>
 <html>
