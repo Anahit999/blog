@@ -56,7 +56,8 @@
     print_r($fruits);
     array_push($fruits,"kiwi","pineapple");
     print_r($fruits);
-
+    array_unshift($fruits, "kiwi");
+    print_r($fruits);
     ?>
 </body>
 <html>
