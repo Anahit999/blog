@@ -54,8 +54,8 @@
     print_r(array_count_values($fruits));
     array_pop($fruits);
     print_r($fruits);
-    array_push($fruit,"kiwi","pineapple");//error e talis
-    print_r($fruit);//error a talis
+    array_push($fruits,"kiwi","pineapple");
+    print_r($fruits);
 
     ?>
 </body>
