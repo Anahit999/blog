@@ -38,7 +38,9 @@
     $email = "user@example.com";
     print_r (explode( "@", $email)) . "<br>";//sxal
     echo(join("at", $email));//sxal
-    echo str_replace("@", "at", "$email");
+    echo (str_replace("@", "at", "$email")) . "<br>";
+    //chhaskaca pahanjy - het glxir toxy???
+    echo substr("$email", 4) . "<br>";
     ?>
 </body>
 <html>
