@@ -79,6 +79,14 @@
     $student["qaxaq"] = "Erevan";
     echo "<br>";
     print_r($student);//xndir9 en erroric heto mnacacy chem pordzel, bayc kodery iti chisht lini
+    $numbers = [5, 12, 8, 130, 44, 3];
+    echo(max($numbers)) . "<br>";
+    echo(min($numbers)) . "<br>";
+    if (in_array("44", $numbers)){
+        echo "exist 44"
+    }else{
+        echo "doesn't exist 44"
+    }//menak es mi hatiky error tvec
     ?>
 </body>
 <html>
