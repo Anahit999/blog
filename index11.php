@@ -40,7 +40,23 @@
     echo(join("at", $email));//sxal
     echo (str_replace("@", "at", "$email")) . "<br>";
     //chhaskaca pahanjy - het glxir toxy???
-    echo substr("$email", 4) . "<br>";
+    echo substr("$email", 4) . "<br>";//xndir6
+    function getInitials($name){
+        $words = explode(" ", $name);
+        $initials = "";
+        foreach ($words as $word){
+            $initials .= strtoupper($word[0]) . ".";
+        }
+        return $initials;
+    }
+    echo getInitials("john smith");
+    $fruits = array("orange", "banana", "mango", "avokado", "apple");//xndir7
+    print_r(array_count_values($fruits));
+    array_pop($fruits);
+    print_r($fruits);
+    array_push($fruit,"kiwi","pineapple");//error e talis
+    print_r($fruit);//error a talis
+
     ?>
 </body>
 <html>
