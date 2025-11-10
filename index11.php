@@ -58,6 +58,15 @@
     print_r($fruits);
     array_unshift($fruits, "kiwi");
     print_r($fruits);
+    $student = [
+        "anun" => "Anahit"
+        "tariq" => "18"
+        "gnahatakan" => "19"
+    ];
+    echo "all:<br>";
+    foreach(array_keys($student) as $key){
+        echo $key . "<br>";
+    }//error e talis
     ?>
 </body>
 <html>
