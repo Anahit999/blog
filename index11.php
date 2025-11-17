@@ -89,8 +89,77 @@
     }//menak es mi hatiky error tvec
     $evenNumbers = array_filter($numbers, function($num)){
         return $num %2 == 0;
-    }
-    print_r($evenNumbers);//es mekn el error tvec//xndir10
+    }print_r($evenNumbers);//es mekn el error tvec//xndir10
+
+
+        
+$name = $lastname = $email = $gender = $username = $phone = $address = $date = $password = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  $lastname = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $gender = test_input($_POST["gender"]);
+  $username = test_input($_POST["name"]);
+  $phone = test_input($_POST["name"]);
+  $address = test_input($_POST["name"]);
+  $date = test_input($_POST["name"]);
+  $password = test_input($_POST["name"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>PHP Forms</h2>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  Name: <input type="text" name="name">
+  <br><br>
+  Last Name:  <input type="text" name="lastname">
+  E-mail: <input type="text" name="email">
+  <input type="submit" name="submit" value="Submit"> 
+  Gender:
+  <input type="radio" name="gender" value="female">Female
+  <input type="radio" name="gender" value="male">Male
+  <br><br>
+  Username: <input type="text" username="username">
+  <br><br>
+  Phone: <input type="text" name="phone">
+  <input type="submit" name="submit" value="Submit"> 
+  <br><br>
+  Address: <textarea name="comment" rows="5" cols="40"></textarea>
+  <input type="submit" name="submit" value="Submit">
+  <br><br>
+  Date: <input type="text" name="date">
+  <input type="submit" name="submit" value="Submit">
+  Password: <input type="text" name="date">
+  <input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $lastname;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $gender;
+echo "<br>";
+echo $username;
+echo "<br>";
+echo $phone;
+echo "<br>";
+echo $address;
+echo "<br>";
+echo $date;
+echo "<br>";
+echo $password;
+echo "<br>";         
     ?>
 </body>
 <html>
