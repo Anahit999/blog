@@ -162,4 +162,144 @@ echo $password;
 echo "<br>";         
     ?>
 </body>
-<html>
+</html>
+
+
+ՆՈՒՅՆ ՊՐՈՅԵԿՏՆ Է ՀԱՄԱՌՐՅԱ, ՈՒՂՂԱԿԻ ՈՐՈՇԱԿԻ ՓՈՓՈԽՈՒԹՅՈՒՆՆԵՐՈՎ ՈՒ ԱՎԵԼԱՑՈՒՄՆԵՐՈՎ
+
+
+
+$name = $lastname = $email = $gender = $username = $phone = $address = $date = $password = $confirm_password = "";
+$nameErr = $lastnameErr = $emailErr = $genderErr = $usernameErr = $phoneErr = $addressErr = $dateErr = $passwordErr = $confirm_passwordErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    } else {
+        $name = test_input($_POST["name"]);
+        if (!preg_match("...", $name)) {
+            $nameErr = "Only letters and spaces allowed";
+        }
+    }
+    if (empty($_POST["lastname"])) {
+        $lastnameErr = "Last name is required";
+    } else {
+        $lastname = test_input($_POST["lastname"]);
+        if (!preg_match("...", $lastname)) {
+            $lastnameErr = "Only letters and spaces allowed";
+        }
+    }
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    } else {
+        $email = test_input($_POST["email"]);
+        if (!filter_var($email, EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    }
+    if (empty($_POST["gender"])) {
+        $genderErr = "Gender is required";
+    } else {
+        $gender = test_input($_POST["gender"]);
+    }
+    if (empty($_POST["username"])) {
+        $usernameErr = "Username is required";
+    } else {
+        $username = test_input($_POST["username"]);
+    }
+    if (empty($_POST["phone"])) {
+        $phoneErr = "Phone number is required";
+    } else {
+        $phone = test_input($_POST["phone"]);
+        if (!preg_match("+37400000000", $phone)) {
+            $phoneErr = "Phone must be in format: +374 00 000 000";
+        }
+    }
+    if (empty($_POST["address"])) {
+        $addressErr = "Address is required";
+    } else {
+        $address = test_input($_POST["address"]);
+    }
+    if (empty($_POST["date"])) {
+        $dateErr = "Birth date is required";
+    } else {
+        $date = test_input($_POST["date"]);
+        $age = (int) ((time() - strtotime($date)) / (365.25 * 24 * 60 * 60));
+        if ($age < 18) {
+            $dateErr = "You must be 18+ years old";
+        }
+    }
+    if (empty($_POST["password"])) {
+        $passwordErr = "Password is required";
+    } else {
+        $password = test_input($_POST["password"]);
+    }
+    if (empty($_POST["confirm_password"])) {
+        $confirm_passwordErr = "Please confirm your password";
+    } else {
+        $confirm_password = test_input($_POST["confirm_password"]);
+        if ($password !== $confirm_password) {
+            $confirm_passwordErr = "Passwords do not match";
+        }
+    }
+}
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return  $data;
+}
+?>
+
+<h2>PHP Forms</h2>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+  Name: <input type="text" name="name" value="<?php echo $name; ?>">
+  <span style="color:red;">* <?php echo $nameErr; ?></span>
+  <br><br>
+  Lastname: <input type="text" name="lastname" value="<?php echo $lastname; ?>">
+  <span style="color:red;">* <?php echo $lastnameErr; ?></span>
+  <br><br>
+  Email: <input type="text" name="email" value="<?php echo $email; ?>">
+  <span style="color:red;">* <?php echo $emailErr; ?></span>
+  <br><br>
+  Gender:
+  <input type="radio" name="gender" value="female" <?php if($gender=="female") echo "checked"; ?>> Female
+  <input type="radio" name="gender" value="male" <?php if($gender=="male") echo "checked"; ?>> Male
+  <span style="color:red;">* <?php echo $genderErr; ?></span>
+  <br><br>
+  Username: <input type="text" name="username" value="<?php echo $username; ?>">
+  <span style="color:red;">* <?php echo $usernameErr; ?></span>
+  <br><br>
+  Phone: <input type="text" name="phone" placeholder="+374 00 000 000" value="<?php echo $phone; ?>">
+  <span style="color:red;">* <?php echo $phoneErr; ?></span>
+  <br><br>
+  Address: <textarea name="address" rows="5" cols="40"><?php echo $address; ?></textarea>
+  <span style="color:red;">* <?php echo $addressErr; ?></span>
+  <br><br>
+  Birth Date: <input type="date" name="date" value="<?php echo $date; ?>">
+  <span style="color:red;">* <?php echo $dateErr; ?></span>
+  <br><br>
+  Password: <input type="password" name="password">
+  <span style="color:red;">* <?php echo $passwordErr; ?></span>
+  <br><br>
+  Confirm Password: <input type="password" name="confirm_password">
+  <span style="color:red;">* <?php echo $confirm_passwordErr; ?></span>
+  <br><br>
+
+  <input type="submit" name="submit" value="Submit">
+
+</form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name . "<br>";
+echo $lastname . "<br>";
+echo $email . "<br>";
+echo $gender . "<br>";
+echo $username . "<br>";
+echo $phone . "<br>";
+echo $address . "<br>";
+echo $date . "<br>";
+?>
